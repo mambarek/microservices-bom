@@ -203,10 +203,10 @@
     </build>
 
     <scm>
-        <connection>scm:git:git://github.com/spring-projects/spring-boot.git/micro-services-bom</connection>
-        <developerConnection>scm:git:ssh://git@github.com/spring-projects/spring-boot.git/micro-services-bom</developerConnection>
+        <connection>scm:git:git://github.com/mambarek/microservices-bom</connection>
+        <developerConnection>scm:git:ssh://git@github.com/mambarek/microservices-bom</developerConnection>
         <tag>micro-services-bom-1.0</tag>
-        <url>https://github.com/spring-projects/spring-boot/micro-services-bom</url>
+        <url>https://github.com/mambarek/microservices-bom</url>
     </scm>
 
     <distributionManagement>
