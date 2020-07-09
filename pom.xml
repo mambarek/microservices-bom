@@ -11,7 +11,7 @@
 
     <groupId>com.it2go.micro</groupId>
     <artifactId>micro-services-bom</artifactId>
-    <version>1.0</version>
+    <version>1.0.SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Microservices BOM</description>
@@ -135,7 +135,6 @@
     <scm>
         <developerConnection>scm:git:https://github.com/mambarek/microservices-bom.git</developerConnection>
         <url>https://github.com/mambarek/microservices-bom</url>
-    <tag>micro-services-bom-1.0</tag>
   </scm>
 
     <build>
