@@ -214,6 +214,7 @@
         </plugins>
     </build>
 
+    <!-- For artifacts upload -->
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshot</id>
@@ -225,6 +226,7 @@
         </repository>
     </distributionManagement>
 
+    <!-- For artifacts download -->
     <repositories>
         <repository>
             <snapshots>
