@@ -46,6 +46,6 @@ The local Nexus Repos are defined in ~/.m2/settings.xml
 this would not be recognized from Jenkins. Jenkins search for artifacts in the maven central. We have to define them in MAVEN_HOME/config/settings.xml
 
 
-Test for git push 
+Test for git push again
     
 
