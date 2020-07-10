@@ -2,7 +2,7 @@
 
 Realease Build
 
-## Git issues
+## Git Realease Plugin How to
 Release plugin
 
 Test the release using dryRun
