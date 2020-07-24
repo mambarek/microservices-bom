@@ -30,8 +30,8 @@ to list all tags, then delete the not desired tag
 Add the scm tag to pom.xml
 
     <scm>
-        <developerConnection>scm:git:https://github.com/mambarek/microservices-bom.git</developerConnection>
-        <url>https://github.com/mambarek/microservices-bom</url>
+        <developerConnection>scm:git:http://ubuntu-server:7990/scm/ema/microservices-bom.git</developerConnection>
+        <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
     </scm>
     
 #### Release Rollback

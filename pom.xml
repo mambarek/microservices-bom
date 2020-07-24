@@ -133,8 +133,8 @@
     </dependencies>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/mambarek/microservices-bom.git</developerConnection>
-        <url>https://github.com/mambarek/microservices-bom</url>
+        <developerConnection>scm:git:http://ubuntu-server:7990/scm/ema/microservices-bom.git</developerConnection>
+        <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
     <tag>HEAD</tag>
   </scm>
 
