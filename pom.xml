@@ -155,7 +155,7 @@
 
     <scm>
         <connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>
-        <developerConnection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>
+        <developerConnection>scm|git|ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>
         <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
     <tag>microservices-bom-1.2</tag>
   </scm>
