@@ -44,6 +44,7 @@
         <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <awaitility.version>4.0.2</awaitility.version>
         <project.scm.id>github</project.scm.id>
+        <swaggerui.version>2.9.2</swaggerui.version>
     </properties>
 
     <dependencyManagement>
@@ -100,10 +101,17 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+        <!-- Monitoring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-rest-hal-browser</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -119,6 +127,19 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- Swagger UI-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swaggerui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swaggerui.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
