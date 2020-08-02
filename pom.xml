@@ -11,7 +11,7 @@
 
     <groupId>com.it2go.micro</groupId>
     <artifactId>microservices-bom</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.3</version>
     <packaging>pom</packaging>
 
     <description>Microservices BOM</description>
@@ -157,7 +157,7 @@
         <connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>
         <developerConnection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>
         <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
-    <tag>microservices-bom-1.2</tag>
+    <tag>microservices-bom-1.3</tag>
   </scm>
 
     <build>
