@@ -11,7 +11,7 @@
 
     <groupId>com.it2go.micro</groupId>
     <artifactId>microservices-bom</artifactId>
-    <version>1.2</version>
+    <version>1.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Microservices BOM</description>
@@ -34,7 +34,6 @@
 
     <properties>
         <revision>1.0-SNAPSHOT</revision>
-        <project.scm.id>ubuntu-server:7999</project.scm.id>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
@@ -44,7 +43,7 @@
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <awaitility.version>4.0.2</awaitility.version>
-        <project.scm.id>github</project.scm.id>
+        <project.scm.id>ubuntu-server:7999</project.scm.id>
         <swaggerui.version>2.9.2</swaggerui.version>
     </properties>
 
@@ -157,8 +156,7 @@
     <scm>
         <connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>
         <developerConnection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>
-        <!--<url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>-->
-        <url>ssh://git@ubuntu-server:7999/ema/microservices-bom.git</url>
+        <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
     <tag>microservices-bom-1.2</tag>
   </scm>
 
