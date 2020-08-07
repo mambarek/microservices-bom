@@ -11,7 +11,7 @@
 
     <groupId>com.it2go.micro</groupId>
     <artifactId>microservices-bom</artifactId>
-    <version>1.6</version>
+    <version>1.7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Microservices BOM</description>
