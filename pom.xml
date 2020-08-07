@@ -11,7 +11,7 @@
 
     <groupId>com.it2go.micro</groupId>
     <artifactId>microservices-bom</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <version>1.6</version>
     <packaging>pom</packaging>
 
     <description>Microservices BOM</description>
@@ -142,7 +142,7 @@
         <developerConnection>scm:git:http://ubuntu-server:7999/ema/microservices-bom.git
         </developerConnection>
         <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
-        <tag>microservices-bom-1.5</tag>
+        <tag>microservices-bom-1.6</tag>
     </scm>
 
     <build>
