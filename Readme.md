@@ -27,12 +27,32 @@ to list all tags, then delete the not desired tag
 - git tag --delete [TAG_NAME]
 
 #### POM
+in maven local setting.xml add 
+    <server>
+        <id>ubuntu-server</id>
+        <username>mmbarek</username>
+        <password>mmbarek</password>
+    </server>
+    
+    
 Add the scm tag to pom.xml
 
     <scm>
         <developerConnection>scm:git:http://ubuntu-server:7990/scm/ema/microservices-bom.git</developerConnection>
         <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
     </scm>
+    
+    
+this is not working due to ssh problem so what working is this
+
+    <scm>
+        <!--<connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>-->
+        <!--<developerConnection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>-->
+        <developerConnection>scm:git:http://mmbarek:mmbarek@ubuntu-server:7990/scm/ema/microservices-bom.git
+        </developerConnection>
+        <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
+        <tag>microservices-bom-1.6</tag>
+    </scm>    
     
 #### Release Rollback
 - mvn release:rollback
