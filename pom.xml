@@ -137,7 +137,7 @@
     </dependencies>
 
     <scm>
-        <connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>
+        <!--<connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>-->
         <!--<developerConnection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>-->
         <developerConnection>http://ubuntu-server:7990/scm/ema/microservices-bom.git
         </developerConnection>
