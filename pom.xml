@@ -148,7 +148,7 @@
                 <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
                 <tag>microservices-bom-1.6</tag>-->
         <connection>scm:git:https://github.com/mambarek/microservices-bom.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:mambarek/microservices-bom.git
+        <developerConnection>scm:git:ssh://git@github.com:mambarek/microservices-bom
         </developerConnection>
     </scm>
 
