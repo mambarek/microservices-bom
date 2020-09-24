@@ -143,10 +143,13 @@
     <scm>
         <!--<connection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</connection>-->
         <!--<developerConnection>scm:git:ssh://git@ubuntu-server:7999/ema/microservices-bom.git</developerConnection>-->
-        <developerConnection>scm:git:http://mmbarek:mmbarek@ubuntu-server:7990/scm/ema/microservices-bom.git
+        <!--        <developerConnection>scm:git:http://mmbarek:mmbarek@ubuntu-server:7990/scm/ema/microservices-bom.git
+                </developerConnection>
+                <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
+                <tag>microservices-bom-1.6</tag>-->
+        <connection>scm:git:https://github.com/mambarek/microservices-bom.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:mambarek/microservices-bom.git
         </developerConnection>
-        <url>http://ubuntu-server:7990/scm/ema/microservices-bom</url>
-        <tag>microservices-bom-1.6</tag>
     </scm>
 
     <build>
