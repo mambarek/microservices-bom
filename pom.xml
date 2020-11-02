@@ -47,6 +47,7 @@
         <docker.image.prefix>mmbarek</docker.image.prefix>
         <!-- the docker image nem is eq artifactId-->
         <docker.image.name>${project.artifactId}</docker.image.name>
+        <shared.util.version>1.2</shared.util.version>
     </properties>
 
     <dependencyManagement>
@@ -124,6 +125,13 @@
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.it2go</groupId>
+            <artifactId>shared-utils</artifactId>
+            <version>${shared.util.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
