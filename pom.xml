@@ -5,7 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.4.RELEASE</version>
+        <!--<version>2.3.0.RELEASE</version>-->
+        <version>2.4.0</version>
         <relativePath />
     </parent>
 
@@ -45,7 +46,10 @@
         <awaitility.version>4.0.2</awaitility.version>
         <jackson.nullable.version>0.1.0</jackson.nullable.version>
         <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+        <logstash.logback.version>6.3</logstash.logback.version>
+        <ziplin.starter.version>2.2.6.RELEASE</ziplin.starter.version>
+        <!--<spring-cloud.version>Hoxton.SR8</spring-cloud.version>-->
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
         <!-- set this to your docker acct name-->
         <docker.image.prefix>mmbarek</docker.image.prefix>
         <!-- the docker image nem is eq artifactId-->
@@ -110,6 +114,25 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.logback.version}</version>
+        </dependency>
+        <!-- spring-cloud-starter-zipkin in cloud Hoxton.SR8 -->
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <version>${ziplin.starter.version}</version>
         </dependency>
         <dependency>
             <!-- Artemis is need only for experiments we use Rabbit instead -->
