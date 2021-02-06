@@ -47,7 +47,7 @@
         <awaitility.version>4.0.2</awaitility.version>
         <jackson.nullable.version>0.1.0</jackson.nullable.version>
         <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-        <logstash.logback.version>6.3</logstash.logback.version>
+        <logstash.logback.version>6.6</logstash.logback.version>
         <zipkin.starter.version>2.2.6.RELEASE</zipkin.starter.version>
         <!--<spring-cloud.version>Hoxton.SR8</spring-cloud.version>-->
         <spring-cloud.version>2020.0.1</spring-cloud.version>
@@ -118,9 +118,12 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>${logstash.logback.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <!-- spring-cloud-starter-zipkin in cloud Hoxton.SR8 -->
 <!--        <dependency>
@@ -131,14 +134,14 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-<!--        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-            <version>${zipkin.starter.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.logback.version}</version>
         </dependency>
         <dependency>
             <!-- Artemis is need only for experiments we use Rabbit instead -->
