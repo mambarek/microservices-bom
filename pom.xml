@@ -125,6 +125,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+        <!-- To connect with config server on bootstrap -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
         <!-- spring-cloud-starter-zipkin in cloud Hoxton.SR8 -->
 <!--        <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -162,13 +167,11 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
         <!-- Monitoring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -178,19 +181,16 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
             <version>${jackson.nullable.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.it2go</groupId>
             <artifactId>shared-utils</artifactId>
             <version>${shared.util.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
