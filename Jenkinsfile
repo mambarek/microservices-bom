@@ -1,0 +1,137 @@
+#!groovy
+
+def mavenVersion = 'maven-3.8.4'
+def javaVersion = 'jdk11'
+def artefactName = 'shared-utils'
+def artifactory_server = 'jfrog-artifactory'
+def releaseRepo = 'it2go-releases'
+def snapshotRepo = 'it2go-snapshots'
+def depsResolverRepo = 'default-maven-virtual'
+
+def sendSuccessMail(){
+    mail to: "mbarek@it-2go.de", bcc: "", cc: "", from: "Jenkins@it-2go.de", replyTo: "",
+    subject: "Build  ${env.JOB_NAME} done",
+    body: """Your Build  ${env.JOB_NAME} #${env.BUILD_NUMBER} is successfully done.
+    For details check the Job console: 
+    ${env.BUILD_URL}console"""
+}
+
+def sendSuccessMailExt(){
+
+    def subject = "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} is successfully done."
+    def content = '${JELLY_SCRIPT,template="html"}'
+    def recipients = [developers(), requestor()]
+    // send email
+    if(!recipients.isEmpty()) {
+        emailext body: content, mimeType: 'text/html',
+                subject: subject,
+                recipientProviders: recipients, attachLog: true
+    }
+}
+
+def sendErrorMail(error){
+    mail to: "mbarek@it-2go.de", bcc: "", cc: "", from: "Jenkins@it-2go.de", replyTo: "",
+    subject: "Build  ${env.JOB_NAME} fails",
+    body: """
+    Your Build  ${env.JOB_NAME} #${env.BUILD_NUMBER} fails.
+    ${error}
+    For details check the Job console: 
+    ${env.BUILD_URL}console"""
+}
+
+node {
+
+     stage('Checkout') {
+        echo "Checkout ${artefactName}..."
+        checkout scm
+        pom = readMavenPom()
+     }
+
+    stage ('Artifactory configuration') {
+        // Obtain an Artifactory server instance, defined in Jenkins --> Manage Jenkins --> Configure System:
+        server = Artifactory.server artifactory_server
+
+        rtMaven = Artifactory.newMavenBuild()
+        rtMaven.tool = mavenVersion
+        rtMaven.deployer releaseRepo: releaseRepo, snapshotRepo: snapshotRepo, server: server
+        rtMaven.resolver releaseRepo: depsResolverRepo, snapshotRepo: depsResolverRepo, server: server
+        rtMaven.deployer.deployArtifacts = false // Disable artifacts deployment during Maven run
+
+        buildInfo = Artifactory.newBuildInfo()
+    }
+
+     stage('Build') {
+        echo "Build  ${pom.artifactId}-${pom.version}..."
+        withMaven(jdk: javaVersion, maven: mavenVersion) {
+            try{
+                rtMaven.run pom: 'pom.xml', goals: 'clean package -DskipTests=true'
+            } catch(exception){
+                sendErrorMail("Error occurred while building, error: " + exception.message)
+                warnError(exception.message)
+            }
+        }
+     }
+
+    stage('Test') {
+        echo "Test  ${pom.artifactId}-${pom.version}..."
+        withMaven(jdk: javaVersion, maven: mavenVersion) {
+            try{
+                rtMaven.run pom: 'pom.xml', goals: 'clean test'
+            } catch(exception){
+                sendErrorMail("Error occurred while testing, error: " + exception.message)
+                warnError(exception.message)
+            }
+        }
+    }
+
+    if(BRANCH_NAME.contains("release/")) {
+
+        stage ('Publish') {
+            try{
+                rtMaven.deployer.deployArtifacts buildInfo
+                rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
+                server.publishBuildInfo buildInfo
+                tagAndMergeToMatser()
+            } catch(exception){
+                sendErrorMail("Error occurred while publish, error: " + exception.message)
+                warnError(exception.message)
+            }
+        }
+    }
+
+    stage('Notify'){
+        echo "Notify contributors ..."
+        //sendSuccessMail()
+        sendSuccessMailExt()
+    }
+
+    stage('Cleanup') {
+        // Delete workspace when build is done
+        cleanWs()
+    }
+}
+
+def tagAndMergeToMatser() {
+    echo "Berechne tag für release ${pom.artifactId} ${pom.version}"
+    echo "Release: ${pom.artifactId}-${pom.version}"
+    sh "git tag ${pom.artifactId}-${pom.version}"
+    sh "git push --tags"
+
+    mergeToMstaer()
+}
+
+def mergeToMstaer() {
+    def repositoryUrl = scm.userRemoteConfigs[0].url
+    echo "Merge von ${env.BRANCH_NAME} auf master von ${repositoryUrl}..."
+    sh "git checkout -b jenkins-build-${env.BUILD_NUMBER}"
+    sh "git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'"
+    sh "git fetch origin"
+    sh "git checkout master"
+    sh "git branch --set-upstream-to=origin/master master"
+    sh "git pull"
+    sh "git merge jenkins-build-${env.BUILD_NUMBER}"
+    sh "git push"
+    sh "git checkout ${env.BRANCH_NAME}"
+    echo "Merge von ${env.BRANCH_NAME} auf master von ${repositoryUrl} ist beendet."
+}
+
